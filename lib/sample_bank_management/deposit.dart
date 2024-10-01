@@ -113,3 +113,4 @@ class DepositBalance extends State<Deposit> {
     );
   }
 }
+
