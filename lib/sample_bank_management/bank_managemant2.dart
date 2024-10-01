@@ -18,7 +18,6 @@ addmethot(){
   return balance1;
 }
 
-
  @override
   Bank createState() => Bank();
 

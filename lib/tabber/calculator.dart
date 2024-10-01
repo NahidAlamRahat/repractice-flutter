@@ -79,7 +79,6 @@ class _HomeActivityState extends State<Calculator> {
                 });
 
 
-
               },
                   child: Text('Submit')
               ),

@@ -96,7 +96,6 @@ backgroundColor: Color.fromRGBO(0, 40, 84 ,1),
          ),
 
 
-
      ],
    ),
    ),

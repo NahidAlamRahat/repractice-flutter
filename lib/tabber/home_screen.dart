@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget{
             ),
             ),
 
-
            Padding(padding: EdgeInsets.all(15),child:Scrollbar(
 
               child:

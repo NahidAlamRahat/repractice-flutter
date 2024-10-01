@@ -102,7 +102,6 @@ class DepositBalance extends State<Deposit> {
                 onPressed: (){
                   double addBalance=depositController as double;
 
-
                   Navigator.push(context, MaterialPageRoute(builder: (context) => BankHome(accountName: widget.acName, accountNumber: widget.acNumber)
                   ));},
                 child: Text('Submit') ),
