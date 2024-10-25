@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 class AlertScreen extends StatelessWidget{
 
 
+
+
+
+
   Mymessage(message,context) {
 
     ScaffoldMessenger.of(context,).showSnackBar(
@@ -16,7 +20,7 @@ class AlertScreen extends StatelessWidget{
 
 
 
-  MyAlertDialog (context ){
+  MyAlertDialog (context , {required String title, required String message}){
 
     return showDialog(
       context: context,
@@ -27,10 +31,10 @@ class AlertScreen extends StatelessWidget{
                 children: [
                   Icon(Icons.add_alert), // বামপাশে আইকন
                   SizedBox(width: 8), // আইকন ও টেক্সটের মধ্যে স্পেস
-                  Text('Exit Alert!'), // শিরোনাম
+                  Text(title), // শিরোনাম
                 ],
               ),
-              content: Text('Are you sure you want to exit this app?'),
+              content: Text(message),
               actions: [
                 TextButton(
                     onPressed: (){
@@ -75,6 +79,7 @@ class AlertScreen extends StatelessWidget{
                     color: Colors.blue,
                   ),
                   child: Image.network('https://cdn.pixabay.com/photo/2024/08/05/21/19/lion-8947711_1280.jpg'),
+
                 ),
 
                 Container(
@@ -137,7 +142,7 @@ class AlertScreen extends StatelessWidget{
                   ElevatedButton(
                     onPressed: () {
                       Mymessage("This is an ElevatedButton", context);
-                      MyAlertDialog(context);
+                      MyAlertDialog(context, title: 'exit alert ', message: 'do you exit?',);
                     },
                     child: Text('Exit Now'),
                     style: buttonStyle,
@@ -151,6 +156,8 @@ class AlertScreen extends StatelessWidget{
                   ),
                   OutlinedButton(
                     onPressed: () {
+
+                      MyAlertDialog(context, title: 'alert', message: 'hello man');
                       Mymessage("This is an OutlinedButton", context);
                     },
                     child: Text('OutlinedButton'),
