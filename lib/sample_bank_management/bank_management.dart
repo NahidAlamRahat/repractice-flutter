@@ -51,7 +51,7 @@ backgroundColor: Color.fromRGBO(0, 40, 84 ,1),
                  ),
                  Icon(
                    Icons.account_balance,
-                   size: 100,
+                   size: 150,
                    color: Colors.white,
                  ),
                  SizedBox(
@@ -67,64 +67,6 @@ backgroundColor: Color.fromRGBO(0, 40, 84 ,1),
                  ),
 
                  SizedBox(height: 40,),
-
-                 /*SizedBox(
-                   width: 300,
-                   child:
-                 Card(
-                   elevation: 10,
-                   shadowColor: Color(0xFFFEFFA7),
-                   color: Color(0xFF1A237E), // Match the background color
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(30.0), // Rounded corners for the Card
-                   ),
-                   child: TextField(
-                     decoration: InputDecoration(
-                       hintText: 'Account Name',
-                       hintStyle: TextStyle(color: Colors.white70), // Adjust hint text color
-                       prefixIcon: Icon(Icons.person, color: Colors.white70), // Add icon
-                       filled: true,
-                       fillColor: Color(0xFF1A237E), // Matching background color
-                       border: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(30.0), // Rounded corners
-                         borderSide: BorderSide.none, // Remove default border
-                       ),
-                     ),
-                     style: TextStyle(color: Colors.white), // Input text color
-                   ),
-                 ),
-                 ),
-*/
-                 /* SizedBox(
-                      height: 16,
-                    ),
-                    SizedBox(
-                      width: 300,
-                      child: Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                        shadowColor: Color(0xFFFEFFA7),
-                        color: Color(0xFF1A237E),
-                        elevation: 10,
-                        child: TextField(
-
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFF1A237E),
-                            hintText:'Account Number',
-                            hintStyle: TextStyle(color: Colors.white70),
-                            prefixIcon: Icon(Icons.credit_card,color: Colors.white70,),
-                            border:OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                              borderSide: BorderSide.none,
-                            )
-                          ),
-                        style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-*/
-
-
 
 
                  SizedBox(
@@ -209,7 +151,7 @@ backgroundColor: Color.fromRGBO(0, 40, 84 ,1),
                          else{
                            showSnackbar('Please enter a valid Name and Account Number', context);
                          }
-                         
+
                        },
                            style: ButtonStyle(
                              backgroundColor: MaterialStateProperty.all(Color(0xFF1A237E))
@@ -218,56 +160,6 @@ backgroundColor: Color.fromRGBO(0, 40, 84 ,1),
                            child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: 20),)),
                      ),
                    )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   /* Padding(padding: EdgeInsets.all(15),
-
-             child: ElevatedButton(onPressed: (){
-
-               late  String userAccountName=FirstController.text;
-              late String userAccountNumber= SecondController.text;
-
-               if(userAccountName.length>1 && userAccountNumber.length>1){
-                 showSnackbar('Account Created:\nName: $userAccountName\n Number: $userAccountNumber', context);
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => BankHome(accountName: userAccountName, accountNumber: userAccountNumber, ),));
-               }
-               else{
-                 showSnackbar("Please enter both name and account number", context);
-               }
-
-                    },
-               style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 169, 85, 1))),
-             child:Text('Login', style: TextStyle(color: Colors.white,fontSize: 20),),
-
-                    ),
-
-             ),
-*/
 
                   ],
                 ),

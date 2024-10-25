@@ -93,7 +93,8 @@ class Withdraw extends State<WithdrawHome> {
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  child: Text.rich(TextSpan(text: 'Account Number: ',children: [
+                  child: Text.rich(TextSpan(text: 'Account Number: ',
+                      children: [
 
                     TextSpan(
                       text: widget.Ac_number,
@@ -116,7 +117,7 @@ class Withdraw extends State<WithdrawHome> {
                       // Navigator.pop(context, withdrawBalance);
 
                       Navigator.push(context, MaterialPageRoute(builder: (context,) =>
-                          BankHome(accountName: '', accountNumber: '',balance: widget.balance-=withdrawBalance,),));
+                          BankHome(accountName: widget.Ac_Name, accountNumber: widget.Ac_number,balance: widget.balance-=withdrawBalance,),));
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                             content: Text('Withdraw Successful $withdrawBalance\$}')

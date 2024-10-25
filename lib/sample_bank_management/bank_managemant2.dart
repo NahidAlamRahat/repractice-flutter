@@ -43,12 +43,13 @@ class Bank extends State<BankHome> {
         title: Text('Your Account'),
       ),
       drawer: Drawer(
+        backgroundColor: Colors.white,
         child: ListView(
           children: [
             DrawerHeader(
               padding: EdgeInsets.all(0),
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.green),
+                decoration: BoxDecoration(color: Color(0xFF071952)),
                 accountName: Text(
                   'Name: ${widget.accountName.toUpperCase()}',
                   style: TextStyle(fontSize: 14),
@@ -62,48 +63,62 @@ class Bank extends State<BankHome> {
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.account_balance),
-              title: Text('Deposit'),
-              onTap: () async {
-                // Navigate to the Deposit screen and wait for the result
-                final depositAmount = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Deposit(
-                      acName: widget.accountName,
-                      acNumber: widget.accountNumber,
-                      currentBalance: totalBalance,
-                      balance: totalBalance,// Pass current balance
-                    ),
+            Card(
+              elevation: 10,
+              shadowColor: Color(0xFFFEFFA7),
+              color: Colors.white,
+              child: ListTile(
+                leading: Icon(Icons.account_balance,color: Colors.black,),
+                title: Text('Deposit',
+                  style: TextStyle(
+                    color: Colors.black
                   ),
-                );
+                ),
+                onTap: () async {
+                  // Navigate to the Deposit screen and wait for the result
+                  final depositAmount = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Deposit(
+                        acName: widget.accountName,
+                        acNumber: widget.accountNumber,
+                        currentBalance: totalBalance,
+                        balance: totalBalance,// Pass current balance
+                      ),
+                    ),
+                  );
 
-                // If a deposit amount is returned, update the total balance
-                if (depositAmount != null && depositAmount is double) {
-                  updateBalance(depositAmount);
-                }
-              },
+                  // If a deposit amount is returned, update the total balance
+                  if (depositAmount != null && depositAmount is double) {
+                    updateBalance(depositAmount);
+                  }
+                },
+              ),
             ),
 
 
-            ListTile(
-              leading: Icon(Icons.account_balance_wallet),
-              title: Text('Withdraw'),
-              onTap: ()async{
-                final withdrawAmount = await Navigator.push(context,
-                    MaterialPageRoute(
-                      builder: (context) => WithdrawHome(
-                        Ac_Name: widget.accountName,
-                        Ac_number: widget.accountNumber,
-                        balance: totalBalance,)
-                      ,));
+            Card(
+              elevation: 10,
+              color: Colors.white,
+              shadowColor: Color(0xFFFEFFA7),
+              child: ListTile(
+                leading: Icon(Icons.account_balance_wallet,color: Colors.black,),
+                title: Text('Withdraw',style: TextStyle(color: Colors.black),),
+                onTap: ()async{
+                  final withdrawAmount = await Navigator.push(context,
+                      MaterialPageRoute(
+                        builder: (context) => WithdrawHome(
+                          Ac_Name: widget.accountName,
+                          Ac_number: widget.accountNumber,
+                          balance: totalBalance,)
+                        ,));
 
-                if (withdrawAmount != null && withdrawAmount is double) {
-                  withdrawBalance(withdrawAmount);
-                }
+                  if (withdrawAmount != null && withdrawAmount is double) {
+                    withdrawBalance(withdrawAmount);
+                  }
 
-              },
+                },
+              ),
             ),
           ],
         ),
@@ -118,7 +133,7 @@ class Bank extends State<BankHome> {
                 child: Icon(
                   Icons.account_balance,
                   size: 130,
-                  color: Color.fromRGBO(1, 161, 113, 1),
+                  color: Color.fromRGBO(11, 102, 106,1),
                 ),
               ),
               Text(

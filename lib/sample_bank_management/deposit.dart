@@ -117,7 +117,7 @@ class DepositBalance extends State<Deposit> {
                     // });
 
                     Navigator.push(context, MaterialPageRoute(builder: (context,) =>
-                        BankHome(accountName: '', accountNumber: '',balance: widget.balance+=deposit_Amount,),));
+                        BankHome(accountName: widget.acName, accountNumber: widget.acNumber,balance: widget.balance+=deposit_Amount,),));
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
