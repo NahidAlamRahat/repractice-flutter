@@ -49,7 +49,7 @@ class Bank extends State<BankHome> {
             DrawerHeader(
               padding: EdgeInsets.all(0),
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Color(0xFF071952)),
+                decoration: BoxDecoration(color: Color.fromRGBO(0, 54, 59,1)),
                 accountName: Text(
                   'Name: ${widget.accountName.toUpperCase()}',
                   style: TextStyle(fontSize: 14),

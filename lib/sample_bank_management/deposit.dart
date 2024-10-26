@@ -52,15 +52,19 @@ class DepositBalance extends State<Deposit> {
             ),
             Center(
               child: SizedBox(
+
                 width: 400,
-                child: Container(
-                  color: Colors.white,
-                  child: TextField(
-                    controller: depositController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter Deposit Amount',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+                child: Padding(
+                  padding:  EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.white,
+                    child: TextField(
+                      controller: depositController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter Deposit Amount',
+                      ),
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                 ),
@@ -69,36 +73,42 @@ class DepositBalance extends State<Deposit> {
             SizedBox(height: 20),
             SizedBox(
               width: 400,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 1.0),
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                child: Text.rich(TextSpan(text: 'Account Name: ', children: [
-                  TextSpan(
-                    text: widget.acName.toUpperCase(),
-                    style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
-                  )
-                ])),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-              child: SizedBox(
-                width: 400,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 1.0),
                     borderRadius: BorderRadius.circular(4.0),
                   ),
-                  child: Text.rich(TextSpan(text: 'Account No: ', children: [
+                  child: Text.rich(TextSpan(text: 'Account Name: ', children: [
                     TextSpan(
-                      text: widget.acNumber.toUpperCase(),
+                      text: widget.acName.toUpperCase(),
                       style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
                     )
                   ])),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              child: SizedBox(
+                width: 400,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 1.0),
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    child: Text.rich(TextSpan(text: 'Account No: ', children: [
+                      TextSpan(
+                        text: widget.acNumber.toUpperCase(),
+                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+                      )
+                    ])),
+                  ),
                 ),
               ),
             ),

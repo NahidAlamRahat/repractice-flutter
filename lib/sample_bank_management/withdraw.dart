@@ -43,107 +43,113 @@ class Withdraw extends State<WithdrawHome> {
         ],
       ),
 
-      body: SizedBox(
-        width: 600,
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            children: [
-              TextField(
-                controller: balanceWithdraw,
-                decoration: InputDecoration(
-
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter Amount'),
-
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              SizedBox(
-                width: 600,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1.0),
-                    borderRadius: BorderRadius.circular(4.0),
-                  ),
-                  child: Text.rich(TextSpan(text: 'Account Name: ', children: [
-                    TextSpan(
-                      text: widget.Ac_Name.toUpperCase(),
-                      // text: widget.acName.toUpperCase(),
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-                    )
-                  ])),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: 400,
+          child: Padding(
+            padding:  EdgeInsets.fromLTRB(10, 24, 10, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center, // Horizontally center korte
+              children: [
+                TextField(
+                  controller: balanceWithdraw,
+                  decoration: InputDecoration(
+        
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter withdraw Amount'),
+                  keyboardType: TextInputType.number,
                 ),
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-
-              SizedBox(
-                width: 600,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 14),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text.rich(TextSpan(text: 'Account Number: ',
-                      children: [
-
-                    TextSpan(
-                      text: widget.Ac_number,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )
-                    )
-                  ]
-                  ),
-
-                )),
-              ),
-
-              Center(child: ElevatedButton(
-                  onPressed: (){
-                    double withdrawBalance = double.tryParse(balanceWithdraw.text) ?? 0;
-                    if(withdrawBalance>=1 && withdrawBalance<=widget.balance){
-
-                      // Navigator.pop(context, withdrawBalance);
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context,) =>
-                          BankHome(accountName: widget.Ac_Name, accountNumber: widget.Ac_number,balance: widget.balance-=withdrawBalance,),));
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                            content: Text('Withdraw Successful $withdrawBalance\$}')
-                        )
-                      );
-                    }
-                    else{
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Please enter a valid withdraw amount')
-
-                        )
-                      );
-                    }
-                  },
-
-                  child: Text('Submit',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+        
+                SizedBox(
+                  height: 20,
+                ),
+        
+                SizedBox(
+                  width: 400,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 1.0),
+                      borderRadius: BorderRadius.circular(4.0),
                     ),
-                  )
-              )
-              )
+                    child: Text.rich(TextSpan(text: 'Account Name: ', children: [
+                      TextSpan(
+                        text: widget.Ac_Name.toUpperCase(),
+                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+                      )
+                    ])),
+                  ),
+                ),
+        
+                SizedBox(
+                  height: 20,
+                ),
+        
+        
+                SizedBox(
+                  width: 400,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 16),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 1),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text.rich(TextSpan(text: 'Account Number: ',
+                        children: [
+        
+                      TextSpan(
+                        text: widget.Ac_number,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        )
+                      )
+                    ]
+                    ),
+        
+                  )),
+                ),
+        
+                Center(child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ElevatedButton(
+                      onPressed: (){
+                        double withdrawBalance = double.tryParse(balanceWithdraw.text) ?? 0;
+                        if(withdrawBalance>=1 && withdrawBalance<=widget.balance){
 
+                          // Navigator.pop(context, withdrawBalance);
 
-            ],
+                          Navigator.push(context, MaterialPageRoute(builder: (context,) =>
+                              BankHome(accountName: widget.Ac_Name, accountNumber: widget.Ac_number,balance: widget.balance-=withdrawBalance,),));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text('Withdraw Successful $withdrawBalance\$')
+                            )
+                          );
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Please enter a valid withdraw amount')
+
+                            )
+                          );
+                        }
+                      },
+
+                      child: Text('Submit',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                  ),
+                )
+                )
+        
+        
+              ],
+            ),
           ),
         ),
       ),
